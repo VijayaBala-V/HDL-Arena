@@ -1,405 +1,262 @@
-# HDL Arena — Professional LeetCode-Style RTL Verification Platform
+# ⚡ HDL Arena — Professional LeetCode-Style RTL Verification Platform
 
-A modern, full-scale online coding platform specifically designed for **Verilog**, **SystemVerilog**, **RTL design**, **digital logic verification**, and **embedded hardware/software engineering**.
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-2ea44f?style=for-the-badge&logo=github)](https://vijayabala-v.github.io/HDL-Arena/)
+[![React](https://img.shields.io/badge/React-18.3-61dafb?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646cff?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![Icarus Verilog](https://img.shields.io/badge/Icarus%20Verilog-RTL%20Engine-ff6b6b?style=for-the-badge)](https://steveicarus.github.io/iverilog/)
+[![Monaco Editor](https://img.shields.io/badge/Monaco%20Editor-0.52-007acc?style=for-the-badge&logo=visualstudiocode)](https://microsoft.github.io/monaco-editor/)
+[![Tests](https://img.shields.io/badge/Unit%20Tests-15%2F15%20Passed-10b981?style=for-the-badge)](https://github.com/VijayaBala-V/HDL-Arena)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+> A modern, full-scale online coding and EDA evaluation platform engineered for **Verilog**, **SystemVerilog**, **RTL design**, **digital logic verification**, and **embedded hardware/software co-design**.
+
+---
+
+## 🌐 Live Website & Hosting
+
+* **Live Demo (GitHub Pages):** [https://vijayabala-v.github.io/HDL-Arena/](https://vijayabala-v.github.io/HDL-Arena/)
+* **GitHub Repository:** [https://github.com/VijayaBala-V/HDL-Arena](https://github.com/VijayaBala-V/HDL-Arena)
+* **Author:** [VijayaBala-V](https://github.com/VijayaBala-V) (`vijayabala842@gmail.com`)
+
+### Repository Short Description (GitHub About)
+> *Interactive LeetCode-style EDA verification platform for Verilog & SystemVerilog with unified 4-section waveform viewer, dual Monaco editor, automated testbenches, and VJ coin economy.*
+
+### Recommended GitHub Topics / Tags
+`verilog` • `systemverilog` • `eda` • `hardware-description-language` • `rtl-design` • `waveform-viewer` • `digital-logic` • `leetcode` • `monaco-editor` • `icarus-verilog` • `react` • `vite` • `python` • `flask`
 
 ---
 
 ## 📑 Table of Contents
-1. [Platform Highlights](#-platform-highlights)
-2. [Master Architecture & System Specification](#-master-architecture--system-specification)
-3. [Curriculum & Question Bank Architecture](#-curriculum--question-bank-architecture)
-4. [Question-Bank Relational Data Model](#-question-bank-relational-data-model)
-5. [Multi-Language Execution & Judging Infrastructure](#-multi-language-execution--judging-infrastructure)
-6. [Virtual Judge (VJ) Coin Economy & Progressive Hints](#-virtual-judge-vj-coin-economy--progressive-hints)
-7. [Monaco RTL Editor & Formatting Specification](#-monaco-rtl-editor--formatting-specification)
-8. [License-Aware GitHub Importer Engine](#-license-aware-github-importer-engine)
-9. [Comprehensive Audit & Remediation History](#-comprehensive-audit--remediation-history)
-10. [Release v2.2.0 Status & Verification Report](#-release-v220-status--verification-report)
-11. [Quick Start & Operations Guide](#-quick-start--operations-guide)
+1. [Platform Highlights & Latest Improvements](#-platform-highlights--latest-improvements)
+2. [Master Architecture](#-master-architecture)
+3. [Unified 4-Section Waveform Viewer](#-unified-4-section-waveform-viewer)
+4. [IDE & Language Environment System](#-ide--language-environment-system)
+5. [User Credential & Profile Management](#-user-credential--profile-management)
+6. [Curriculum & Question Bank](#-curriculum--question-bank)
+7. [Virtual Judge (VJ) Coin Economy](#-virtual-judge-vj-coin-economy)
+8. [Hosting on GitHub Pages (Deployment Guide)](#-hosting-on-github-pages-deployment-guide)
+9. [Quick Start & Local Development](#-quick-start--local-development)
+10. [Test & Verification Suite](#-test--verification-suite)
 
 ---
 
-## 🌟 Platform Highlights
+## 🌟 Platform Highlights & Latest Improvements
 
-### 1. 📚 Multi-Category Problem Library & Multi-Module Challenges
-* **Multi-Module Support**: Solves complex challenges requiring multiple interacting modules (e.g., `sync_fifo.v` instantiating `fifo_mem.v`).
-* **Rich Domain Categories**:
-  * **Counters & Timers**: `counter4` (4-bit synchronous counter with wrap-around).
-  * **Combinational Logic**: `mux4` (4-to-1 Multiplexer).
-  * **Encoders & Decoders**: `priority_encoder4` (4-to-2 Priority Encoder with valid flag).
-  * **Arithmetic Units & ALUs**: `alu_4bit` (4-bit ALU with zero and carry flags).
-  * **Finite State Machines**: `fsm_seq101` (Overlapping pattern sequence detector).
-  * **FIFO & Buffer Architectures**: `sync_fifo` (4x8 Synchronous FIFO with multi-module memory).
-  * **Handshake Protocols**: `valid_ready_pipe` (Valid/Ready 1-stage pipeline with backpressure).
-  * **SoC Bus Protocols**: `apb_slave_gpio` (AMBA APB 32-bit slave peripheral with memory-mapped IO).
+### 1. 📈 Unified 4-Section EDA Waveform Viewer
+* **Single-Container Architecture**: Consolidates all critical simulation traces into **one synchronized EDA viewer** without disjointed windows or separate cards.
+* **Synchronized Time Axis**: Unified 0ns – MaxTime timeline scrubbing with interactive minimap and cursor readouts.
+* **The 4 Essential Waveform Sections**:
+  1. **Golden Wave (Input)**: Input stimuli and clocks (`clk`, `rst_n`, data inputs) rendered in cyan (`#38bdf8`).
+  2. **Golden Wave (Output)**: Reference model expected outputs rendered in emerald (`#10b981`).
+  3. **Match or Not (Single Bit)**: 1-bit comparator track displaying **MATCH** in vibrant green (`#10b981`) and **MISMATCH** in bright red (`#ef4444`) with shaded comparison fills and instantaneous cursor status.
+  4. **Your Wave (Output)**: Simulated DUT waveforms rendered in purple (`#a855f7`).
+* **Interactive Controls**: Bus expansion/collapse (`[+] / [-]`), Radix switching (**HEX**, **DEC**, **BIN**, **ASCII**), Zoom in/out/fit, and one-click **"🚨 Jump to Divergence"** navigation.
 
-### 2. 💻 Professional Multi-File Monaco Editor
-* **Multi-File Management**: Tabbed file switcher with `+ New` file modal for sub-modules.
-* **Monaco IDE**: Verilog/SystemVerilog syntax highlighting, code folding, bracket matching, configurable font sizes, and line numbering.
-* **Drafts & State**: Automatically persists drafts and code snapshots to local SQLite database.
-* **Keyboard Shortcut**: `Ctrl+Enter` or `Cmd+Enter` runs instant simulation.
+### 2. ⚡ Dynamic IDE Selection Dropdown
+* Replaces static option lists with a modern, compact IDE selector.
+* Seamlessly toggles simulation and toolchain contexts:
+  * **Verilog / HDL IDE**: Icarus Verilog simulation engine.
+  * **C / C++ IDE**: Clang C99 & Clang++ C++17 verification models.
+  * **Python IDE**: Python 3 testbench scripting.
+  * **Java IDE**: JVM-based verification environments.
 
-### 3. 📈 Interactive Digital Waveform Viewer (VCD)
-* **Real VCD Simulation**: Visualizes actual VCD data generated by Icarus Verilog.
-* **Interactive Timeline Cursor**: Scrub or hover across timestamps with instantaneous live readout across all signals.
-* **Bus & Digital Wave Rendering**: Crisp square waves for 1-bit lines and diamond polygons with centered value labels for buses.
-* **Radix Switching**: Switch multi-bit values between **HEX (`0x..`)**, **DEC**, and **BIN**.
-* **Signal Filter**: Search signals by name or filter by scope (`DUT` vs `TB`).
-* **Zoom & Pan**: Zoom in (`+`), zoom out (`-`), or fit-to-screen (`Fit`).
+### 3. 📏 Configurable Workspace Output Sizing
+* Compact dropdown selector allowing developers to adjust workspace height density to **540px**, **640px**, or **840px**.
+* Automatically reflows Monaco Editor, tab bars, and diagnostics panels using `ResizeObserver`.
 
-### 4. 🔬 RTL Debug Advisor & Failure Analysis
-* **Evidence-Based Explanations**: Correlates simulation logs, cycle mismatches, compiler linting, and VCD X/Z anomalies.
-* **Root-Cause Hypotheses**: Identifies uninitialized registers, reset polarity mismatches, inferred latches, off-by-one delays, and FIFO pointer wrap-around errors.
-* **Actionable Recommendations**: Direct advice on non-blocking assignments (`<=`), synchronous sensitivity lists, and default case assignments.
+### 4. 🛡️ Strict Programming Language Filtering
+* Enforces rigorous language-to-environment dependencies in `environments.js`.
+* Selecting **Verilog / HDL IDE** strictly filters options to **Verilog (IEEE 1364)** and **SystemVerilog (IEEE 1800)**, completely hiding non-HDL languages and safeguarding state integrity.
 
-### 5. 🗺️ Multi-Page LeetCode Experience
-1. **💻 Workspace**: Integrated specification panel, multi-file editor, and resizable bottom diagnostics tab (Test Suite, Cycle Diff, Waveform, Debug Advisor, Simulator Console).
-2. **📚 Problem Catalog**: Searchable and filterable by Category, Difficulty (Easy, Medium, Hard, Expert), and Status (Solved, Bookmarked).
-3. **🗺️ Learning Tracks**: Step-by-step career roadmaps (RTL Fundamentals, Sequential Circuits, FSM Mastery, FIFOs & Handshakes, APB Bus Protocols).
-4. **👤 User Dashboard**: Difficulty breakdown, topic mastery progress bars, daily practice streak (🔥), and acceptance rate metrics.
+### 5. 👤 Modular User Credential & Profile Area
+* Prepares the interface for scalable authentication and account administration.
+* Includes a compact navbar avatar pill, user profile info, and modular flyout menus:
+  * **User Profile**: Personal identity and verification engineer bio.
+  * **Password & Credentials**: Security keys and authentication settings.
+  * **Account Preferences**: Editor theme (`vs-dark`), keybindings, and formatting preferences.
+  * **Saved IDE & Language**: Preferred default development configurations.
+
+### 6. 💻 Dual-Engine Multi-File Code Editor
+* **Monaco IDE**: Verilog & SystemVerilog syntax highlighting, 4-space auto-indentation, bracket matching, line numbering, and `Ctrl+Enter` simulation shortcut.
+* **Fast Native Text Mode**: Instant lightweight fallback for low-latency or resource-constrained devices.
+* **Multi-File Module Management**: Tabbed file switcher supporting hierarchical multi-module designs (e.g. `sync_fifo.v` instantiating `fifo_mem.v`).
 
 ---
 
-## 🛠️ Master Architecture & System Specification
+## 🛠️ Master Architecture
 
 ```mermaid
 flowchart TD
-    subgraph Frontend["Frontend (React 18 + Vite)"]
-        UI["Cybernetic UI (#070b14, #00f3ff, #b026ff)"]
-        Editor["Dual-Engine Code Editor\n(Monaco IDE & Fast Native Engine)"]
-        Diagnostics["Verification Diagnostics Panel\n(Test Suite, Cycle Diff, Waveform, Advisor)"]
-        Catalog["Question Catalog & Filter Engine\n(4 Difficulties, 5 Languages, 8 Types)"]
-        EconomyUI["VJ Coin Economy UI\n(Progressive Hints, Daily Streak, Ledger)"]
+    subgraph Client["Frontend SPA (React 18 + Vite)"]
+        UI["Cybernetic Dark EDA Interface"]
+        Navbar["Top Navigation & Account Pill"]
+        Editor["Dual-Engine Multi-File Editor\n(Monaco + Native Text)"]
+        WaveViewer["Unified 4-Section Waveform Viewer\n(VCD Parser + Time-Sync Minimap)"]
+        Diagnostics["Diagnostics Console & Cycle Diff"]
     end
 
-    subgraph Backend["Backend (Flask 3.x + SQLite)"]
-        Router["API Gateway & Response Normalizer\n(/api/questions, /api/account, /api/submit)"]
-        Auth["Session & Token Auth Handler\n(Bearer, Cookies, LocalStorage)"]
-        JudgeDispatch["Universal Judging Dispatcher\n(runner.py)"]
+    subgraph Server["Backend API (Flask 3.x + SQLite)"]
+        Gateway["API Gateway (/api/questions, /api/submit)"]
+        Judge["Universal Judging Dispatcher\n(runner.py)"]
         Ledger["Authoritative VJ Coin Ledger\n(0.5 VJ Resolution, Asia/Kolkata Day)"]
-        DB[(SQLite Persistent Storage\nusers, questions, submissions, ledger)]
+        DB[(SQLite Persistent Storage)]
     end
 
-    subgraph Execution["Execution Sandboxes"]
-        Icarus["Icarus Verilog Sandbox\n(iverilog & vvp, VCD Generator)"]
-        Clang["Clang C Sandbox\n(C99 Sandbox with Timeout Watchdog)"]
-        ClangPP["Clang++ C++ Sandbox\n(C++17 Sandbox with Memory Limits)"]
-        PythonRunner["Python 3 Sandbox\n(Resource-constrained Subprocess)"]
-        NonCodingEval["Conceptual & Rubric Evaluator\n(MCQ, Predict Output, Rubric Grader)"]
+    subgraph Simulation["Execution Sandboxes"]
+        Iverilog["Icarus Verilog Engine\n(iverilog & vvp, VCD Generator)"]
+        Clang["Clang C/C++ Engine\n(C99 & C++17 Sandboxes)"]
+        PythonRunner["Python 3 Runner"]
     end
 
-    UI --> Router
-    Editor --> Router
-    Router --> Auth
-    Router --> JudgeDispatch
-    Router --> Ledger
+    UI --> Gateway
+    Editor --> Gateway
+    Gateway --> Judge
+    Gateway --> Ledger
     Ledger --> DB
-    JudgeDispatch --> Icarus
-    JudgeDispatch --> Clang
-    JudgeDispatch --> ClangPP
-    JudgeDispatch --> PythonRunner
-    JudgeDispatch --> NonCodingEval
-    JudgeDispatch --> DB
-    Diagnostics <-- Router
-```
-
-### Core Architectural Principles
-1. **Zero Faux-Execution**: Submissions are never marked Accepted merely because they compiled. Every solution must execute against trusted harnesses, visible test cases, and hidden corner-case assertions.
-2. **Deterministic Indentation & Clean RTL Editing**: 4 spaces indentation (`tabSize: 4`, `insertSpaces: true`), strict alignment of `begin`, `end`, `else`, and `endmodule`, with horizontal scrolling on mobile.
-3. **Authoritative Virtual Judge (VJ) Economy**: Exact half-coin resolution (`0.5 VJ`), server-side validation, atomic database transactions with SQLite `immediate` locking, and timezone anchoring to `Asia/Kolkata`.
-4. **Resilient Offline-First UX**: Universal API response handler (`apiFetchJson`) that prevents `"Unexpected end of JSON input"` on 500/empty responses and offers graceful offline fallbacks.
-
-### Standardized API Response Protocol
-
-```mermaid
-flowchart TD
-    Req["Frontend apiFetchJson(url, options)"] --> Fetch["window.fetch()"]
-    Fetch --> ReadText["res.text() (Raw string capture)"]
-    ReadText --> EmptyCheck{"Length == 0?"}
-
-    EmptyCheck -->|Yes| HandleEmpty["Return {ok: res.ok, status, error: 'Empty response body'}"]
-    EmptyCheck -->|No| ParseJSON{"JSON.parse()"}
-
-    ParseJSON -->|Syntax Error| HandleNonJSON["Return structured ApiError:\nNon-JSON / HTML Error Page"]
-    ParseJSON -->|Success| CheckHTTP{"res.ok (2xx)?"}
-
-    CheckHTTP -->|No| ThrowApiError["Throw ApiError with status, backend code, & message"]
-    CheckHTTP -->|Yes| ReturnData["Return parsed data object"]
+    Judge --> Iverilog
+    Judge --> Clang
+    Judge --> PythonRunner
+    Judge --> Diagnostics
+    Judge --> WaveViewer
 ```
 
 ---
 
-## 📚 Curriculum & Question Bank Architecture
+## 📈 Unified 4-Section Waveform Viewer
 
-### 1. Four Difficulty Tiers
+The waveform engine transforms standard VCD (Value Change Dump) traces into an interactive, synchronized comparison view:
 
-| Tier | Target Roles | Technical Scope | Key Concepts Tested |
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│  UNIFIED WAVEFORM VIEWER (0ns — 180ns)        [Radix: HEX] [Zoom: 1.0x]│
+├────────────────────────────────────────────────────────────────────────┤
+│ 1. Golden Wave (Input)                                                 │
+│    clk      ───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───│
+│    rst_n    ───────┘                                                   │
+├────────────────────────────────────────────────────────────────────────┤
+│ 2. Golden Wave (Output)                                                │
+│    dout[3:0] < 0x0 >< 0x1 >< 0x2 >< 0x3 >< 0x4 >< 0x5 >< 0x6 >< 0x7 > │
+├────────────────────────────────────────────────────────────────────────┤
+│ 3. Match or Not (Single Bit)                                           │
+│    STATUS   █████████████████████████████████████░░░░░░████████████████│
+│             [✓ MATCH (Green)]                    [✗ MISMATCH (Red)]    │
+├────────────────────────────────────────────────────────────────────────┤
+│ 4. Your Wave (Output)                                                  │
+│    dout[3:0] < 0x0 >< 0x1 >< 0x2 >< 0x3 >< 0x4 >< 0x0 >< 0x6 >< 0x7 > │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+* **Timeline Scrubbing**: Clicking anywhere on the minimap or waveform moves the synchronized golden cursor across all 4 sections simultaneously.
+* **Divergence Highlighting**: When your output deviates from golden output, a red guideline and jump button instantly navigate to the exact cycle of failure.
+
+---
+
+## 🌐 Hosting on GitHub Pages (Deployment Guide)
+
+The frontend is configured with relative base asset paths (`base: './'`) in `frontend/vite.config.js` and automated with a GitHub Actions workflow.
+
+### Automated Deployment via GitHub Actions (Enabled)
+Every push to the `main` branch automatically triggers `.github/workflows/deploy.yml` which:
+1. Checks out the repository.
+2. Installs dependencies (`npm ci`).
+3. Builds the production bundle (`npm run build`).
+4. Deploys `frontend/dist` to **GitHub Pages**.
+
+### One-Time GitHub Repository Activation:
+1. Navigate to your repository on GitHub: `https://github.com/VijayaBala-V/HDL-Arena`
+2. Click **Settings** (top navigation tab).
+3. In the left sidebar, click **Pages**.
+4. Under **Build and deployment → Source**, select **GitHub Actions**.
+5. Your website will be live at:
+   ```text
+   https://vijayabala-v.github.io/HDL-Arena/
+   ```
+
+---
+
+## 💻 IDE & Language Environment System
+
+| Environment | Default Dialect | Supported Dialects | Execution Engine |
 | :--- | :--- | :--- | :--- |
-| **Beginner** | University, Interns, Junior RTL | Combinational gates, number systems, Verilog syntax, basic C/Python | Multiplexers, priority encoders, 4-bit ALUs, Boolean simplification |
-| **Intermediate** | RTL Design Engineer I/II | Synchronous logic, registers, state machines, SystemVerilog fundamentals | Synchronous counters, rollover, sequence pattern detectors (FSMs), ring buffers |
-| **Advanced** | Senior RTL / DV Engineer | FIFOs, CDC, arbiters, parameterized RTL, assertions | Asynchronous CDC FIFOs, Gray code pointers, Round-Robin arbitration, Valid/Ready pipelines |
-| **Expert** | Staff / Principal / Architect | Bus protocol controllers, interconnect hazards, timing closure | AMBA APB 32-bit slave GPIO, AXI4 out-of-order interconnect deadlock, CDC metastability |
+| **Verilog / HDL IDE** | Verilog | `Verilog (IEEE 1364)`, `SystemVerilog (IEEE 1800)` | Icarus Verilog (`iverilog`, `vvp`) |
+| **C / C++ IDE** | C++ | `C (Clang C99)`, `C++ (Clang++ C++17)` | Clang Toolchain |
+| **Python IDE** | Python 3 | `Python 3` | CPython Sandbox |
+| **Java IDE** | Java | `Java (OpenJDK 17)` | JVM Sandbox |
 
-### 2. Eight Question Modalities
+---
 
-1. **Coding (`coding`)**: Complete module implementation with full port interface (`module ... endmodule`).
+## 🪙 Virtual Judge (VJ) Coin Economy
+
+HDL Arena integrates a fair, gamified economy to encourage continuous practice:
+* **🔥 Daily Login Streak**: Earn `+1.0 VJ Coin` each calendar day (anchored to `Asia/Kolkata`).
+* **🎯 First-Time Solve Bounties**: Earn `+1.0 VJ Coin` for your first accepted solve on Intermediate, Advanced, and Expert problems.
+* **💡 Progressive Clues**:
+  * *Hint 0 (Conceptual)*: Free (`0.0 VJ`).
+  * *Hint 1 (RTL Clue)*: `0.5 VJ`.
+  * *Hint 2 (Implementation)*: `0.5 VJ`.
+* **📖 Canonical Solution Unlock**: Unlock full golden RTL, architecture notes, and timing analysis for `1.0 VJ`.
+
+---
+
+## 📚 Curriculum & Question Bank
+
+### 1. Difficulty Tiers
+* **Beginner**: Combinational gates, muxes, priority encoders, 4-bit ALUs.
+* **Intermediate**: Synchronous counters, LFSRs, sequence pattern detectors (FSMs), ring buffers.
+* **Advanced**: Synchronous/Asynchronous FIFOs, Gray code converters, round-robin arbiters, Valid/Ready pipelines.
+* **Expert**: AMBA APB 32-bit slave peripherals, memory-mapped I/O, CDC synchronization, bus interconnects.
+
+### 2. Question Modalities
+1. **Coding (`coding`)**: Full module implementation with port declarations.
 2. **Debugging (`debugging`)**: Pre-populated buggy code requiring synthesis or timing bug isolation.
-3. **Single Choice (`single_choice`)**: Timed conceptual question with 4 options and automated immediate grading.
-4. **Multiple Choice (`multiple_choice`)**: Multiple-select architectural questions.
-5. **Predict the Output (`predict_output`)**: Given RTL or software snippets, calculate exact simulation log or register output.
-6. **Fill in the Code (`fill_in_code`)**: Critical blocks (e.g. Next-State logic or pointer comparison) left with `/* YOUR CODE HERE */`.
-7. **Conceptual Short Answer (`conceptual`)**: Theoretical depth questions evaluated against structured rubric points.
-8. **Interview Scenario (`interview_scenario`)**: Real-world architectural design trade-offs with multi-criteria rubric scoring.
+3. **Single Choice (`single_choice`)**: Timed conceptual digital logic questions.
+4. **Multiple Choice (`multiple_choice`)**: Multi-select architectural questions.
+5. **Predict the Output (`predict_output`)**: Compute exact register states or simulation cycle outputs.
+6. **Fill in the Code (`fill_in_code`)**: Critical next-state logic or pointer checks.
+7. **Conceptual Short Answer (`conceptual`)**: Theoretical depth questions graded against rubric criteria.
+8. **Interview Scenario (`interview_scenario`)**: Real-world hardware trade-offs and architectural designs.
 
 ---
 
-## 🗄️ Question-Bank Relational Data Model
+## 🚀 Quick Start & Local Development
 
-The database houses a normalized, non-destructive 9-entity relational schema in SQLite:
+### Prerequisites
+* **Node.js** (v18 or higher) & **npm**
+* **Python** (v3.10 or higher)
+* **Icarus Verilog** (`iverilog` and `vvp` in system PATH)
 
-```mermaid
-erDiagram
-    problems ||--o{ language_variants : "has variants"
-    problems ||--o{ reference_solutions : "has solutions (restricted)"
-    problems ||--o{ test_suites : "has testbenches"
-    problems ||--o{ question_hints : "has progressive clues"
-    problems ||--|| question_explanations : "has explanation"
-    problems ||--|| source_attributions : "has licensing notice"
-    users ||--o{ submissions : "submits"
-    users ||--o{ question_attempts : "attempts"
-    users ||--o{ hint_unlocks : "unlocks clue"
-    users ||--o{ solution_unlocks : "unlocks canonical"
-    users ||--|| user_profiles : "owns"
-
-    problems {
-        string id PK
-        string slug UK
-        string title
-        string topic
-        string category
-        string difficulty
-        string question_type
-        string language
-        text description
-        string module_name
-        text interface
-        text starter_files_json
-        string content_fingerprint UK
-        timestamp created_at
-        timestamp updated_at
-    }
-
-    source_attributions {
-        int id PK
-        string problem_id FK
-        string repo_url
-        string original_path
-        string commit_hash
-        string license_identifier
-        text copyright_notice
-        timestamp import_date
-        string permitted_reuse
-    }
-
-    reference_solutions {
-        int id PK
-        string problem_id FK
-        string language
-        string version
-        text canonical_files_json
-        text expected_behavior
-        text architecture_notes
-    }
-
-    test_suites {
-        int id PK
-        string problem_id FK
-        string suite_version
-        text harness_code
-        float timeout_sec
-        int memory_limit_mb
-    }
-
-    question_hints {
-        int id PK
-        string problem_id FK
-        int hint_level
-        string title
-        text hint_text
-        float cost_coins
-        string policy
-    }
+### 1. Run Frontend Development Server
+```bash
+cd frontend
+npm install
+npm run dev
 ```
+*Access in browser:* `http://localhost:5173`
 
-### Security & Privacy Enforcements:
-- Normal problem listing (`/api/questions`) and problem metadata (`/api/questions/<id>`) **never** return reference solution source or hidden testbench assertions.
-- Canonical solution code is strictly gated behind `/api/questions/<id>/solution` and requires prior unlock verification via `database.is_solution_unlocked()`.
-
----
-
-## ⚡ Multi-Language Execution & Judging Infrastructure
-
-### 1. Supported Dialects & Compilers
-
-```mermaid
-flowchart LR
-    Sub["User Submission\n(files, language, mode)"] --> Switch{"Language Switch"}
-
-    Switch -->|verilog / systemverilog| VerilogRunner["Icarus Verilog (iverilog & vvp)\nStrict Module Preserving\nSeparate Trusted Testbench"]
-    Switch -->|c| CRunner["Clang C99\n-O2 -Wall -Wextra\nMemory & Timeout Limits"]
-    Switch -->|cpp| CppRunner["Clang++ C++17\n-O2 -Wall -Wextra\nSTL Container Validation"]
-    Switch -->|python| PyRunner["Python 3 Interpreter\nIsolated Temp Execution\nResource Capping"]
-    Switch -->|non-coding| RubricRunner["Rubric & Answer Grader\nNormalized String Matching\nRubric Keyword Matrix"]
-
-    VerilogRunner --> StandardResult["Normalized Output Payload\nverdict, test_results, cycle_logs,\nwaveform, diagnostics, console"]
-    CRunner --> StandardResult
-    CppRunner --> StandardResult
-    PyRunner --> StandardResult
-    RubricRunner --> StandardResult
+### 2. Run Backend API Server
+```bash
+python -m pip install -r backend/requirements.txt
+python backend/main.py
 ```
+*Backend runs on:* `http://127.0.0.1:8000`
 
-### 2. Verdict State Machine
-
-| Verdict | Meaning | User Feedback & Visual Treatment |
-| :--- | :--- | :--- |
-| **`ACCEPTED`** | All sample & hidden tests passed with 100% assertion matches. | Emerald green glow, celebration banner, suggested next challenge, coin credit (+1 VJ on first solve for Med/Hard/Exp). |
-| **`WRONG_ANSWER`** | Code compiled and ran, but output deviated from golden specification. | Coral red alert, cycle diff comparison table, encouraging misconception explanation, clue recommendation. |
-| **`COMPILE_ERROR`** | Syntax error, missing semicolon, undeclared identifier, or lint failure. | Amber badge, raw compiler diagnostics, exact line and column pointers. Never returns HTTP 500. |
-| **`RUNTIME_ERROR`** | Memory fault, assertion crash, zero division, or uncaught exception. | Magenta badge, stack trace summary without revealing host filesystem paths. |
-| **`TIMEOUT`** | Code exceeded wall-clock execution limit (e.g., infinite loop, deadlocked handshake). | Purple warning, execution halted safely with subprocess kill. |
-
----
-
-## 🪙 Virtual Judge (VJ) Coin Economy & Progressive Hints
-
-### 1. Authoritative Rules & Balance Integrity
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as User / Browser
-    participant API as /api/questions/{id}/hints/{idx}/unlock
-    participant Tx as DB Transaction (IMMEDIATE)
-    participant Ledger as coins_ledger Table
-    participant Users as users Table
-
-    User->>API: POST /hints/1/unlock (Bearer Token)
-    API->>Tx: BEGIN IMMEDIATE
-    Tx->>Users: SELECT coins FROM users WHERE id = ?
-    alt Insufficient Balance (coins < 0.5)
-        Tx-->>API: ROLLBACK
-        API-->>User: HTTP 400 {"error": "Insufficient coins", "balance": 0.0}
-    else Sufficient Balance
-        Tx->>Users: UPDATE users SET coins = coins - 0.5 WHERE id = ?
-        Tx->>Ledger: INSERT INTO coins_ledger (amount = -0.5, desc = 'Unlock Hint 1')
-        Tx->>Tx: INSERT INTO hint_unlocks (user_id, question_id, hint_idx)
-        Tx->>Tx: COMMIT
-        API-->>User: HTTP 200 {"coins": 2.5, "unlocked": true, "hint": {...}}
-    end
+### 3. Build Production Bundle
+```bash
+cd frontend
+npm run build
 ```
-
-### 2. Economy Policy Table
-
-| Action | Cost / Reward | Transaction Type | Verification Safeguards |
-| :--- | :--- | :--- | :--- |
-| **Daily Login Check-In** | `+1.0 VJ Coin` | Credit | One claim per calendar day anchored to `Asia/Kolkata`. Unique constraint on `(user_id, claim_date)`. |
-| **First-Time Solve (Med/Hard/Exp)** | `+1.0 VJ Coin` | Credit | Requires genuine `ACCEPTED` verdict. Idempotent check prevents duplicate credits on repeated submissions. |
-| **First-Time Solve (Beginner)** | `0.0 VJ Coin` | Free Practice | Unrestricted foundational practice. |
-| **Progressive Clue 0 (Conceptual)** | `0.0 VJ Coin` | Free Clue | Always visible immediately to prevent candidate frustration. |
-| **Progressive Clues 1+** | `-0.5 VJ Coin` per step | Debit | Atomic deduction; unlocks permanently for user account. |
-| **Canonical Golden RTL Solution** | `-1.0 VJ Coin` | Debit | Complete golden code, timing analysis, and architecture notes. |
+Generates production assets in `frontend/dist/`.
 
 ---
 
-## 🖋️ Monaco RTL Editor & Formatting Specification
+## 🧪 Test & Verification Suite
 
-### 1. Editor Configuration
-```javascript
-{
-  fontSize: 13,
-  fontFamily: "'DM Mono', 'Fira Code', Consolas, monospace",
-  lineNumbers: 'on',
-  tabSize: 4,
-  insertSpaces: true,
-  detectIndentation: false,
-  autoIndent: 'full',
-  formatOnPaste: true,
-  formatOnType: true,
-  wordWrap: 'off',
-  wrappingIndent: 'indent',
-  scrollBeyondLastLine: false,
-  automaticLayout: true,
-  minimap: { enabled: false },
-  padding: { top: 12, bottom: 12 }
-}
-```
-
-### 2. Deterministic Verilog Formatting Rules
-- **4 Spaces per Level**: No tabs (`\t`) emitted.
-- **Module Declarations**: `module <name>(` starts at column 0. Port list lines indented by 4 spaces. Closing `);` placed at column 0.
-- **Module Body Contents**: All declarations (`reg`, `wire`, `logic`, `localparam`), continuous assignments (`assign`), and clocked blocks (`always @(...)`) start at 4 spaces.
-- **Block Statements**: Contents inside `begin ... end` and `case ... endcase` indented an additional 4 spaces.
-- **Module Closure**: `endmodule` strictly aligned at column 0 with a terminating newline.
-
----
-
-## 🔍 License-Aware GitHub Importer Engine
-
-### 1. Candidate Repository Audit Matrix
-
-| Candidate Repository | Status | License Found | Permitted Reuse | Action Taken |
-| :--- | :--- | :--- | :--- | :--- |
-| **`Weiyet/MakerCode_RTLChallenge`** | ✅ **APPROVED** | `MIT` | Redistribution & Modification Permitted | Imported challenges (Gray code, LFSR, Debouncer) with full attribution notices. |
-| **`Adrofier/HDLBits-Verilog-Solutions`** | 🟡 **CONDITIONALLY APPROVED** | `MIT` (Solution Code) | Adapted Reuse Permitted | Solutions permitted; required independent problem descriptions and new testbenches. |
-| **`Shengrong-LSR/HDLBits-Solutions-Verilog`** | ❌ **REJECTED** | `NO_LICENSE` | Prohibited (Default Copyright) | Excluded. No open-source license provided; redistribution not legally permitted. |
-| **`harishkani/system-verilog`** | ❌ **REJECTED** | `UNKNOWN` | Unavailable | Excluded. Repository not found or unavailable publicly (HTTP 404). |
-
-### 2. Ingestion Engine Commands (`backend/importer.py`)
+HDL Arena features a comprehensive 15-test automated verification suite and mutation fault-injection testing:
 
 ```bash
-# Display licensing audit matrix
-python backend/importer.py --audit
-
-# Dry-run validation (checks schema, license, testbench completeness, and duplicates without DB write)
-python backend/importer.py
-
-# Commit validated challenges to database
-python backend/importer.py --commit
-
-# Selective filtering
-python backend/importer.py --filter-difficulty Beginner --commit
-python backend/importer.py --filter-topic "Sequential" --commit
+# Run unit test suite
+python backend/tests/test_hdl_arena.py
 ```
-
-### 3. Content Fingerprint Deduplication
-Every imported question generates a deterministic SHA-256 fingerprint:
-$$\text{Fingerprint} = \text{SHA256}(\text{ID} \parallel \text{Title} \parallel \text{Module} \parallel \text{Difficulty} \parallel \text{Language} \parallel \text{Type} \parallel \text{StarterFiles} \parallel \text{Description})$$
-Duplicate submissions or re-runs are identified idempotently without generating redundant database rows.
-
----
-
-## 🔧 Comprehensive Audit & Remediation History
-
-| Component / Area | Status Prior to Fix | Root Cause Identified | Remediated Status |
-| :--- | :--- | :--- | :--- |
-| **Monaco Editor JSX** (`MultiFileEditor.jsx`) | ❌ Broken (Build Error) | Stray `>` tag and duplicate button tag fragment around line 693 without opening tag. | ✅ **Fixed**: Tags balanced, submit logic preserved. |
-| **`/api/submit` HTTP 500** (`backend/main.py`) | ❌ Broken (HTTP 500) | `exec_start = time.time()` called without `import time`, causing `NameError`. | ✅ **Fixed**: Added `import time` and `import sys`. |
-| **`/api/account/daily-reward`** (`backend/main.py`) | ❌ Intermittent 500 / Empty JSON | Unhandled exceptions and session edge cases on unauthenticated or missing profile requests. | ✅ **Fixed**: Standardized try/except returning structured JSON payload with error codes. |
-| **API Response Parsing** (`frontend/src/utils/api.js`) | ⚠️ SyntaxError Risk | `res.json()` directly called on empty responses or non-JSON 500 HTML pages. | ✅ **Fixed**: Universal safe body parser handling empty responses and 204s without throwing `"Unexpected end of JSON input"`. |
-| **Database Integrity & Backup** (`backend/database.py`) | ⚠️ Unbacked-up Migrations | Migrations ran without automated pre-flight integrity check or timestamped backup. | ✅ **Fixed**: `backup_database_with_integrity_check()` added using `PRAGMA integrity_check` before schema changes. |
-| **Noncoding Evaluators** (`test_08_noncoding_evaluators`) | ❌ Test Discrepancy | Test asserted Option B was correct for `mcq_setup_hold` while ground truth is Option A. | ✅ **Fixed**: Updated test to Option A; implemented robust input normalization handling whitespace, case, radix prefixes, and quotes. |
-| **Software Execution Runners** (`test_11_software_execution_runners`) | ⚠️ False Compile Error | `clang++` linker and library errors classified as `COMPILE_ERROR` instead of `COMPILER_UNAVAILABLE`. | ✅ **Fixed**: Implemented `get_cpp_compiler_info()`, `get_c_compiler_info()`, and expanded `is_toolchain_error()` to detect linker failures. |
-| **RTL Validator: `fsm_seq101`** | ❌ False Pass / Failure Override | Cycle parser received malformed cycle records with trailing `::time`. | ✅ **Fixed**: Enhanced cycle parser supporting both key-value and positional formats; guaranteed assertion failure strictly forces `WRONG_ANSWER`. |
-| **RTL Validator: `sync_fifo` & `apb_slave_gpio`** | ❌ UnicodeDecodeError | Testbenches passed raw binary vectors into `%0s` in `$display`, generating non-UTF-8 bytes. | ✅ **Fixed**: Formatted outputs via `$sformatf("%08X", ...)`, expanded string widths to `[127:0]`, added `errors="replace"` across all subprocess decoders. |
-| **RTL Validator: `gray_code_conv`** | ⚠️ Timescale Warning | `gray_code_conv.v` lacked `` `timescale `` directive while testbench had `` `timescale 1ns/1ps ``. | ✅ **Fixed**: Added `` `timescale 1ns/1ps `` to starter and solution templates. |
-| **Mutation Testing: `debounce_filter` & `vending_machine_fsm`** | ⚠️ Ineffective Mutation | Fallback mutations either hit unexercised states or failed to latch state. | ✅ **Fixed**: Implemented dedicated semantic mutations verifying genuine testbench rigor. |
-| **Decoupled Reporting** | ⚠️ Metric Coupling | Publication status was coupled to schema validity rather than verification. | ✅ **Fixed**: Decoupled `schema_valid_count`, `reference_solutions_passed`, `mutation_tests_passed`, `fully_verified_count`, and `published_ready_count`. |
-
----
-
-## 🚀 Release v2.2.0 Status & Verification Report
-
-### 1. Backend Unit Test Suite (`backend/tests/test_hdl_arena.py`)
 ```text
 test_01_database_integrity_and_backup ..................... PASSED
 test_02_phase1_schema_tables_exist ....................... PASSED
@@ -420,69 +277,22 @@ test_15_cpp_software_runner_regression .................... PASSED
 Ran 15 tests in 0.840s — OK (All 15 unit tests pass cleanly)
 ```
 
-### 2. Automated Quality & Mutation Validator (`backend/validator.py`)
+```bash
+# Run automated quality and mutation fault-injection validator
+python backend/validator.py
+```
 ```text
-=======================================================
-  HDL Arena Automated Quality & Mutation Validator
-  Validating 24 Questions in Question Bank
-=======================================================
-
-Total Questions Registered:          24
-Schema Validated:                    24 (100%)
-Duplicate Statements Detected:       0
-Questions with Canonical Solution:   18 (100% of Coding/Debugging)
-Questions with Executable Harness:   24 (100%)
-Reference Simulations Passed:        16 (100% of Simulatible RTL)
-Reference Simulations Skipped:       0
-Reference Simulations Failed:        0
-Mutation Fault-Tests Passed:         16 (100% of Simulatible RTL)
-Mutation Fault-Tests Skipped:        0
-Mutation Fault-Tests Failed:         0
-Unsupported / Offline Toolchains:    0
-Fully Verified Questions:            24 (100%)
-Published Ready:                     24 (100%)
-Privacy Enforced (No Leaks):         24 (100%)
-
-🎉 ALL QUESTIONS VERIFIED AND PUBLISHED READY! (Exit 0)
+🎉 ALL 24 QUESTIONS VERIFIED AND PUBLISHED READY! (Exit 0)
 ```
 
 ---
 
-## 🚀 Quick Start & Operations Guide
+## 📄 License
 
-### 1. Production Mode (Single Command)
-Launches the integrated production server serving both the pre-built React SPA and Flask API on port `8000`:
-```bash
-# Option A: Grant execution permission and run directly
-chmod +x start_production.sh start.sh
-./start_production.sh
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-# Option B: Run via sh/bash directly without chmod
-sh start_production.sh
+---
 
-# Option C: Run via Python launcher
-python3 start_production.py
-```
-*Access in browser at: `http://127.0.0.1:8000` or `http://<device-ip>:8000`.*
-
-### 2. Development Mode (Vite HMR + Backend)
-Runs the Vite hot-module-reloading dev server on port `5173` with backend on port `8000`:
-```bash
-./start.sh
-# (or: sh start.sh)
-```
-*Access dev UI at: `http://127.0.0.1:5173`.*
-
-### 3. Testing & Verification Commands
-```bash
-# Run the 15-test unit verification suite:
-python3 backend/tests/test_hdl_arena.py
-
-# Run the automated quality and mutation fault-injection validator:
-python3 backend/validator.py
-```
-
-### 4. Security & Production Deployment Recommendations
-1. **Sandboxed Execution**: In production multi-tenant environments, isolate Verilog simulation (`iverilog`/`vvp`), C/C++ compilation, and Python execution using lightweight containers (`nsjail` or Docker) with 5-second CPU timeouts, 256MB memory boundaries, and disabled network access (`--net=none`).
-2. **Reverse Proxying**: Run Gunicorn/Uvicorn behind Nginx with rate-limiting on submission endpoints (10 requests/min per IP) and strict CORS origin headers.
-3. **Database Durability**: Keep the automated pre-migration backup mechanism active. Ensure SQLite WAL mode (`PRAGMA journal_mode=WAL;`) is maintained for concurrent reader performance.
+<p align="center">
+  Crafted with ⚡ for RTL Designers, Verification Engineers & Hardware Architects worldwide.
+</p>
